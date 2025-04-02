@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Complete</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 400px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        .bullet-point {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .bullet-point::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e3a8a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="container bg-white rounded-lg shadow-lg p-8 mx-auto">
+        <div class="border border-gray-200 rounded-lg p-8">
+            <h1 class="text-3xl font-bold text-[#1e3a8a] mb-6">Your assessment is complete!</h1>
+            
+            <p class="text-gray-700 mb-6">
+                Before viewing the assessment results, it's important to keep in mind that:
+            </p>
+
+            <div class="space-y-4 mb-8">
+                <div class="bullet-point text-gray-700">
+                    ChikitSak can make mistakes. ChikitSak is powered by an AI language model, which is not infallible. Please double-check responses.
+                </div>
+                <div class="bullet-point text-gray-700">
+                    This assessment is not a diagnosis. It's for informational purposes only and does not constitute a medical opinion.
+                </div>
+                <div class="bullet-point text-gray-700">
+                    This assessment is not for emergencies. In case of a health emergency, please call your local emergency number immediately.
+                </div>
+            </div>
+            
+            {% if result %}
+            <div class="mb-6">
+                <h2 class="text-xl text-gray-800 mb-2">Potential Diseases:</h2>
+                <pre class="bg-gray-100 p-4 rounded whitespace-pre-wrap text-gray-700">{{ result }}</pre>
+            </div>
+            {% endif %}
+
+            <button id="understandBtn" class="bg-[#1e3a8a] text-white px-6 py-3 rounded hover:bg-[#1e3a8a]/90 transition-colors duration-200 font-medium">
+                I understand
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('understandBtn').addEventListener('click', function() {
+            window.location.href = '/possible_disease';
+        });
+    </script>
+</body>
+</html>
